@@ -22,7 +22,7 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 
 // app.use("/api/conversations", messageRoute);
 // app.use("/api/appointment", appRoutes);
-app.use("/api/foodAuth", foodAuth);
+app.use("/api/food-auth", foodAuth);
 // app.use("/api/users", userRoutes);
 // app.use("/api/profile", profileRoutes);
 
