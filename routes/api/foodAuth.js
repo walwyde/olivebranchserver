@@ -12,6 +12,10 @@ const router = express.Router();
 
 const User = require("../../models/FoodUser");
 
+router.get('/', async (req, res) => {
+  res.status(200).json({msg: "you have reached the foodApp User validation EndPoint, thanks.. oh, make post requests to /validate. :,)"})
+})
+
 router.post(
   "/validate",
   [
