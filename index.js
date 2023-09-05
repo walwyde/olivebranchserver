@@ -6,12 +6,12 @@ const cors = require("cors");
 const morgan = require("morgan");
 const path = require('path')
 
-// const messageRoute = require("./routes/api/messages");
+const messageRoute = require("./routes/api/messages");
 const authRoutes = require("./routes/api/auth");
 const foodAuth = require("./routes/api/foodAuth");
-// const appRoutes = require("./routes/api/appointment");
-// const userRoutes = require("./routes/api/users");
-// const profileRoutes = require("./routes/api/profile");
+const appRoutes = require("./routes/api/appointment");
+const userRoutes = require("./routes/api/users");
+const profileRoutes = require("./routes/api/profile");
 
 app.use(cors());
 app.use(morgan("dev"));
@@ -20,11 +20,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/public", express.static(path.join(__dirname, "public")));
 
 
-// app.use("/api/conversations", messageRoute);
-// app.use("/api/appointment", appRoutes);
+app.use("/api/conversations", messageRoute);
+app.use("/api/appointment", appRoutes);
 app.use("/api/food-auth", foodAuth);
-// app.use("/api/users", userRoutes);
-// app.use("/api/profile", profileRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/profile", profileRoutes);
 
 const PORT = process.env.PORT || 3001;
 
